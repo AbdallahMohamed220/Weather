@@ -1,4 +1,4 @@
-part of 'weather_cubit.dart';
+part of 'weather_bloc.dart';
 
 enum WeatherStatus { initial, loading, loaded, error }
 
