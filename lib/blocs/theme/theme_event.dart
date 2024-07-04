@@ -8,7 +8,7 @@ sealed class ThemeEvent extends Equatable {
 }
 
 class SetThemeEvent extends ThemeEvent {
-  final double temp;
+  final AppTheme appTheme;
 
-  SetThemeEvent({required this.temp});
+  SetThemeEvent({required this.appTheme});
 }

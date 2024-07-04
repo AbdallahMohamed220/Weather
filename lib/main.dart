@@ -35,27 +35,22 @@ class MyApp extends StatelessWidget {
             create: (BuildContext context) => TempSettingsBloc(),
           ),
           BlocProvider(
-            create: (BuildContext context) => ThemeBloc(),
+            create: (BuildContext context) => ThemeBloc(
+              weatherBloc: context.read<WeatherBloc>(),
+            ),
           ),
         ],
-        child: BlocListener<WeatherBloc, WeatherState>(
-          listener: (context, state) {
-            context
-                .read<ThemeBloc>()
-                .add(SetThemeEvent(temp: state.weather.temp));
+        child: BlocBuilder<ThemeBloc, ThemeState>(
+          builder: (context, state) {
+            return MaterialApp(
+              title: 'Weather',
+              debugShowCheckedModeBanner: false,
+              theme: state.appTheme == AppTheme.light
+                  ? ThemeData.light()
+                  : ThemeData.dark(),
+              home: HomeScreen(),
+            );
           },
-          child: BlocBuilder<ThemeBloc, ThemeState>(
-            builder: (context, state) {
-              return MaterialApp(
-                title: 'Weather',
-                debugShowCheckedModeBanner: false,
-                theme: state.appTheme == AppTheme.light
-                    ? ThemeData.light()
-                    : ThemeData.dark(),
-                home: HomeScreen(),
-              );
-            },
-          ),
         ),
       ),
     );
