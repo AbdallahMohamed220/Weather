@@ -1,4 +1,4 @@
-# weather
+# Weather
 
 ![ScreenShot](screenshot_light.png)
 
@@ -12,7 +12,7 @@
 
 
 
-# weather App
+# Weather App
 
 is an app used to fetch weather from openWeatherMap api and display different themes depending on weather degree 
 
