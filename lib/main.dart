@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (BuildContext context) => WeatherCubit(
               weatherRepository: context.read<WeatherRepository>(),
-            ),
+            )..checkFetchCurrentLocation(),
           ),
           BlocProvider(
             create: (BuildContext context) => TempSettingsCubit(),

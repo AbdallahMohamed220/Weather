@@ -36,6 +36,14 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             onPressed: () async {
+              context.read<WeatherCubit>().checkFetchCurrentLocation();
+            },
+            icon: Icon(
+              Icons.location_on_outlined,
+            ),
+          ),
+          IconButton(
+            onPressed: () async {
               _city = await Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -63,15 +71,24 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(
               Icons.settings,
             ),
-          )
+          ),
         ],
       ),
-      body: ShowWeather(),
+      body: BlocBuilder<WeatherCubit, WeatherState>(
+        builder: (context, state) {
+          if (state.status == WeatherStatus.loading) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return ShowWeather();
+        },
+      ),
     );
   }
 }
 
-String showTemperature(double temperature, BuildContext context) {
+String showTemperature(dynamic temperature, BuildContext context) {
   String formatTemperate =
       context.watch<TempSettingsCubit>().state.tempUnit == TempUnit.celsius
           ? temperature.toStringAsFixed(2) + '℃'

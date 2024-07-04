@@ -7,7 +7,7 @@ part 'theme_state.dart';
 class ThemeCubit extends Cubit<ThemeState> {
   ThemeCubit() : super(ThemeState.initial());
 
-  void setTheme(double temp) {
+  void setTheme(dynamic temp) {
     if (temp > kWarmOrNot) {
       emit(state.copyWith(appTheme: AppTheme.light));
     } else {
