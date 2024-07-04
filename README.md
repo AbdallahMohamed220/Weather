@@ -1,17 +1,27 @@
 # weather
 
-A new Flutter project.
+![ScreenShot](screenshot_light.png)
 
-## Getting Started
+![ScreenShot](screenshot_dark.png)
 
-This project is a starting point for a Flutter application.
+![ScreenShot](search.png)
 
-A few resources to get you started if this is your first Flutter project:
+![ScreenShot](settings.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# Weather
+
+
+
+# weather App
+
+is an app used to fetch weather from openWeatherMap api and display different themes depending on weather degree 
+
+as you can search for city and get weather and toggled between show degree in Celsius or fahrenheit
+
+the is made with different type of logic as it made in :
+
+ - cubit + streamSubscription
+ - cubit + BlocListener
+ - Bloc + StreamSubscription
+ - Bloc + BlocListener
+
